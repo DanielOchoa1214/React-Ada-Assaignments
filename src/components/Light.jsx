@@ -1,5 +1,15 @@
+import { useContext } from "react";
+import { SmartHomeContext } from "../SmartHomeContext";
+
 export function Light(props) {
-  const { id, isOn, onToggle } = props;
+  const { id } = props;
+  const { lights, dispatch } = useContext(SmartHomeContext);
+
+  const isOn = lights[id];
+
+  const handleOnToggle = () => {
+    dispatch({ type: "toggle", payload: id });
+  };
 
   return (
     <button
@@ -11,7 +21,7 @@ export function Light(props) {
         fontSize: "3rem",
         background: isOn ? "#eee" : "#444",
       }}
-      onClick={onToggle}
+      onClick={handleOnToggle}
     >
       {isOn ? "💡" : "⚫️"}
     </button>

@@ -1,5 +1,5 @@
 export function MainControls(props) {
-  const { onAllOffClick, onAllOnClick } = props;
+  const { onAllOffClick, onAllOnClick } = props; 
 
   return (
     <div>
